@@ -37,16 +37,22 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-phoenix-dark/80 backdrop-blur-xl border-b border-orange-500/10 py-3' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div className="flex items-center gap-3 group cursor-pointer">
-          <motion.div 
-            whileHover={{ rotate: 180 }}
-            className="w-12 h-12 bg-phoenix-fire rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-[0_0_20px_rgba(255,80,0,0.5)]"
-            style={{ background: 'linear-gradient(135deg, #ff4500, #ff8c00)' }}
-          >
-            <Flame className="w-7 h-7 fill-white text-white" />
-          </motion.div>
-          <span className="text-3xl font-display font-black tracking-tighter text-white italic group-hover:text-phoenix-gold transition-colors">TPL</span>
-          <span className="hidden sm:block text-xs font-black uppercase tracking-[0.3em] text-orange-400/70 mt-1 italic">Phoenix</span>
-        </div>
+            <motion.img
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              src="https://i.postimg.cc/85PZKq7Y/TPL-Season-4-No-Background.png"
+              alt="TPL Season 4"
+              className="w-12 h-12 object-contain drop-shadow-lg"
+              referrerPolicy="no-referrer"
+            />
+            <div className="flex flex-col leading-none">
+              <span className="text-xl font-display font-black tracking-tighter text-white italic uppercase group-hover:text-phoenix-gold transition-colors" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                THORE PREMIER LEAGUE
+              </span>
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-orange-400/70 italic">
+                Season 4 · Phoenix
+              </span>
+            </div>
+          </div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-10">
@@ -229,7 +235,6 @@ const Hero = () => {
               className="w-full h-full object-cover"
             >
               <source src={`${import.meta.env.BASE_URL}tpl-video.mp4`} type="video/mp4" />
-              <source src={`${import.meta.env.BASE_URL}tpl.mp4`} type="video/mp4" />
             </video>
 
             {/* OVERLAY */}
@@ -671,43 +676,43 @@ const WallOfFame = () => {
 // Season Logos Section (replacing Future Scope)
 const SeasonLogos = () => {
   const seasons = [
-    {
-      number: 1,
-      title: 'Season 1',
-      subtitle: 'The Beginning',
-      status: 'completed',
-      year: '2023',
-      champion: 'Team Nayan Thorat',
-      icon: '🏆',
-    },
-    {
-      number: 2,
-      title: 'Season 2',
-      subtitle: 'The Rivalry',
-      status: 'completed',
-      year: '2024',
-      champion: 'Team Himanshu Kumar',
-      icon: '⚡',
-    },
-    {
-      number: 3,
-      title: 'Season 3',
-      subtitle: 'The Reckoning',
-      status: 'completed',
-      year: '2025',
-      champion: 'TBD',
-      icon: '🎯',
-    },
-    {
-      number: 4,
-      title: 'Season 4',
-      subtitle: 'The Phoenix',
-      status: 'active',
-      year: '2026',
-      champion: 'IN PROGRESS',
-      icon: '🔥',
-    },
-  ];
+        {
+          number: 1,
+          title: 'Season 1',
+          subtitle: 'The Beginning',
+          status: 'completed',
+          year: '2023',
+          champion: 'Team Nayan Thorat',
+          logo: 'https://i.postimg.cc/wjmcw90H/TPL-LOGO-NO-BACKGROUND.png',
+        },
+        {
+          number: 2,
+          title: 'Season 2',
+          subtitle: 'The Rivalry',
+          status: 'completed',
+          year: '2024',
+          champion: 'Team Himanshu Kumar',
+          logo: 'https://i.postimg.cc/sDt5Qtsz/TPL-Season2-No-Background.png',
+        },
+        {
+          number: 3,
+          title: 'Season 3',
+          subtitle: 'The Reckoning',
+          status: 'completed',
+          year: '2025',
+          champion: 'TBD',
+          logo: 'https://i.postimg.cc/6QKRzn8D/TPL-Season-3-Logo-No-Background.png',
+        },
+        {
+          number: 4,
+          title: 'Season 4',
+          subtitle: 'The Phoenix',
+          status: 'active',
+          year: '2026',
+          champion: 'IN PROGRESS',
+          logo: 'https://i.postimg.cc/85PZKq7Y/TPL-Season-4-No-Background.png',
+        },
+      ];
 
   return (
     <section className="py-32 bg-phoenix-dark relative overflow-hidden">
@@ -751,9 +756,12 @@ const SeasonLogos = () => {
                 {/* Season badge */}
                 <div>
                   {/* Big emoji icon */}
-                  <div className={`text-6xl mb-6 transition-transform duration-500 group-hover:scale-110 ${season.status === 'active' ? 'animate-pulse' : ''}`}>
-                    {season.icon}
-                  </div>
+                  <img
+                      src={season.logo}
+                      alt={season.title}
+                      className={`w-24 h-24 object-contain mb-6 transition-transform duration-500 group-hover:scale-110 drop-shadow-lg ${season.status === 'active' ? 'animate-pulse' : ''}`}
+                      referrerPolicy="no-referrer"
+                    />
 
                   {/* Season number big display */}
                   <div className="relative mb-4">
