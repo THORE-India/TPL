@@ -3,13 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Trophy, Users, Target, Calendar, TrendingUp, Award, Star, 
   Zap, BarChart3, MapPin, Video, UserCheck, Briefcase,
-  ChevronRight, ExternalLink, Info, Image as ImageIcon,
-  Rocket, X, Menu, Clock
+  ChevronRight, ExternalLink, Image as ImageIcon,
+  X, Menu, Clock, Flame
 } from 'lucide-react';
 import { TPL_DATA } from './data';
 
@@ -34,16 +34,18 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-tpl-primary/80 backdrop-blur-xl border-b border-white/10 py-3' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-phoenix-dark/80 backdrop-blur-xl border-b border-orange-500/10 py-3' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div className="flex items-center gap-3 group cursor-pointer">
           <motion.div 
             whileHover={{ rotate: 180 }}
-            className="w-12 h-12 bg-tpl-accent rounded-xl flex items-center justify-center text-tpl-primary font-black text-2xl shadow-[0_0_20px_rgba(204,255,0,0.4)]"
+            className="w-12 h-12 bg-phoenix-fire rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-[0_0_20px_rgba(255,80,0,0.5)]"
+            style={{ background: 'linear-gradient(135deg, #ff4500, #ff8c00)' }}
           >
-            T
+            <Flame className="w-7 h-7 fill-white text-white" />
           </motion.div>
-          <span className="text-3xl font-display font-black tracking-tighter text-white italic group-hover:text-tpl-accent transition-colors">TPL</span>
+          <span className="text-3xl font-display font-black tracking-tighter text-white italic group-hover:text-phoenix-gold transition-colors">TPL</span>
+          <span className="hidden sm:block text-xs font-black uppercase tracking-[0.3em] text-orange-400/70 mt-1 italic">Phoenix</span>
         </div>
 
         {/* Desktop Nav */}
@@ -52,15 +54,12 @@ const Navbar = () => {
             <a 
               key={link.name} 
               href={link.href} 
-              className="font-black uppercase tracking-widest text-xs text-white/70 hover:text-tpl-accent transition-all relative group"
+              className="font-black uppercase tracking-widest text-xs text-white/70 hover:text-phoenix-gold transition-all relative group"
             >
               {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tpl-accent transition-all group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-phoenix-fire transition-all group-hover:w-full" style={{ background: 'linear-gradient(90deg, #ff4500, #ff8c00)' }}></span>
             </a>
           ))}
-          <button className="bg-tpl-secondary hover:bg-red-600 text-white px-8 py-2.5 rounded-full font-black italic uppercase tracking-tighter transition-all transform hover:scale-105 hover:rotate-1 shadow-[0_0_20px_rgba(255,0,60,0.3)]">
-            Join The Hunt
-          </button>
         </div>
 
         {/* Mobile Toggle */}
@@ -76,7 +75,7 @@ const Navbar = () => {
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
-            className="fixed inset-0 z-[60] md:hidden bg-tpl-primary/95 backdrop-blur-2xl p-8"
+            className="fixed inset-0 z-[60] md:hidden bg-phoenix-dark/95 backdrop-blur-2xl p-8"
           >
             <div className="flex justify-end mb-12">
               <button onClick={() => setIsMobileMenuOpen(false)} className="p-3 glass-card rounded-full text-white">
@@ -89,14 +88,11 @@ const Navbar = () => {
                   key={link.name} 
                   href={link.href} 
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-4xl font-black text-white hover:text-tpl-accent transition-colors italic"
+                  className="text-4xl font-black text-white hover:text-phoenix-gold transition-colors italic"
                 >
                   {link.name}
                 </a>
               ))}
-              <button className="w-full bg-tpl-accent text-tpl-primary px-6 py-5 rounded-2xl font-black text-xl mt-8 italic uppercase">
-                Join Now
-              </button>
             </div>
           </motion.div>
         )}
@@ -107,28 +103,56 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden sports-gradient">
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden phoenix-gradient">
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Phoenix ember glow top right */}
         <motion.div 
           animate={{ 
             scale: [1, 1.2, 1],
-            opacity: [0.1, 0.2, 0.1],
-            rotate: [0, 90, 0]
+            opacity: [0.15, 0.3, 0.15],
+            rotate: [0, 20, 0]
           }}
-          transition={{ duration: 20, repeat: Infinity }}
-          className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] bg-tpl-accent/20 rounded-full blur-[150px]"
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] rounded-full blur-[150px]"
+          style={{ background: 'radial-gradient(circle, rgba(255,80,0,0.3) 0%, rgba(255,140,0,0.1) 50%, transparent 70%)' }}
         />
+        {/* Ember glow bottom left */}
         <motion.div 
           animate={{ 
             scale: [1, 1.3, 1],
-            opacity: [0.1, 0.15, 0.1],
-            rotate: [0, -90, 0]
+            opacity: [0.1, 0.2, 0.1],
+            rotate: [0, -15, 0]
           }}
-          transition={{ duration: 15, repeat: Infinity }}
-          className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-tpl-secondary/20 rounded-full blur-[120px]"
+          transition={{ duration: 12, repeat: Infinity }}
+          className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] rounded-full blur-[120px]"
+          style={{ background: 'radial-gradient(circle, rgba(255,200,0,0.2) 0%, rgba(255,80,0,0.1) 50%, transparent 70%)' }}
         />
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        {/* Ember particles */}
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 rounded-full"
+            style={{
+              left: `${10 + i * 8}%`,
+              top: `${20 + (i % 4) * 20}%`,
+              background: i % 3 === 0 ? '#ff4500' : i % 3 === 1 ? '#ff8c00' : '#ffd700',
+              boxShadow: `0 0 6px ${i % 3 === 0 ? '#ff4500' : i % 3 === 1 ? '#ff8c00' : '#ffd700'}`,
+            }}
+            animate={{
+              y: [0, -80, -160],
+              opacity: [0, 1, 0],
+              scale: [0.5, 1.5, 0],
+            }}
+            transition={{
+              duration: 3 + (i % 4),
+              repeat: Infinity,
+              delay: i * 0.4,
+              ease: 'easeOut',
+            }}
+          />
+        ))}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
@@ -141,28 +165,30 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-xl border border-white/10 px-6 py-2.5 rounded-full text-tpl-accent text-sm font-black italic tracking-widest mb-8 shadow-[0_0_30px_rgba(204,255,0,0.2)]"
+            className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-xl border border-orange-500/20 px-6 py-2.5 rounded-full text-phoenix-gold text-sm font-black italic tracking-widest mb-8"
+            style={{ boxShadow: '0 0 30px rgba(255,140,0,0.15)' }}
           >
-            <Zap className="w-5 h-5 fill-tpl-accent animate-pulse" />
-            <span>SEASON 3: THE RECKONING</span>
+            <Flame className="w-5 h-5 fill-orange-400 text-orange-400 animate-pulse" />
+            <span>SEASON 4: THE PHOENIX RISES</span>
           </motion.div>
           
           <h1 className="text-7xl md:text-9xl font-black text-white leading-[0.85] mb-8 italic">
             THORE <br />
-            <span className="text-tpl-accent text-glow">PREMIER</span> <br />
+            <span className="phoenix-text-gradient">PREMIER</span> <br />
             <span className="relative">
               LEAGUE
               <motion.span 
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
                 transition={{ delay: 1, duration: 0.8 }}
-                className="absolute -bottom-4 left-0 h-4 bg-tpl-secondary skew-x-[-20deg] -z-10"
+                className="absolute -bottom-4 left-0 h-4 skew-x-[-20deg] -z-10"
+                style={{ background: 'linear-gradient(90deg, #ff4500, #ff8c00)' }}
               />
             </span>
           </h1>
           
           <p className="text-xl text-white/60 max-w-lg mb-12 leading-relaxed font-medium">
-            Step into the arena. Where data meets adrenaline, and sales warriors become legends. Are you ready to dominate?
+            From the ashes, greatness is reborn. Season 4 — The Phoenix rises. Will you burn bright or be consumed?
           </p>
           
           <div className="flex flex-wrap gap-6">
@@ -170,7 +196,8 @@ const Hero = () => {
               whileHover={{ scale: 1.05, rotate: -1 }}
               whileTap={{ scale: 0.95 }}
               href="#leaderboard" 
-              className="bg-tpl-accent text-tpl-primary px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-[0_0_40px_rgba(204,255,0,0.3)] flex items-center gap-3 italic uppercase"
+              className="text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center gap-3 italic uppercase"
+              style={{ background: 'linear-gradient(135deg, #ff4500, #ff8c00)', boxShadow: '0 0 40px rgba(255,80,0,0.4)' }}
             >
               ENTER ARENA <ChevronRight className="w-6 h-6" />
             </motion.a>
@@ -178,7 +205,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05, rotate: 1 }}
               whileTap={{ scale: 0.95 }}
               href="#about" 
-              className="bg-white/5 hover:bg-white/10 backdrop-blur-xl border border-white/10 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center gap-3 italic uppercase"
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-xl border border-orange-500/20 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center gap-3 italic uppercase"
             >
               THE RULES
             </motion.a>
@@ -191,61 +218,32 @@ const Hero = () => {
           transition={{ duration: 1.2, type: "spring" }}
           className="relative"
         >
-          <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(0,210,255,0.2)] border-8 border-white/5 animate-float">
-        
-          {/* VIDEO */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src={`${import.meta.env.BASE_URL}tpl.mp4`} type="video/mp4" />
-          </video>
-        
-          {/* OVERLAY */}
-          <div className="absolute inset-0 bg-gradient-to-t from-tpl-primary via-transparent to-transparent opacity-80"></div>
-            
-            <div className="absolute top-8 left-8 bg-tpl-secondary text-white px-4 py-2 rounded-lg font-black italic skew-x-[-15deg]">
-              ELITE DIVISION
-            </div>
+          <div className="relative z-10 rounded-[3rem] overflow-hidden border-8 border-orange-500/10 animate-float"
+               style={{ boxShadow: '0 0 80px rgba(255,80,0,0.25), 0 0 160px rgba(255,140,0,0.1)' }}>
+            {/* VIDEO */}
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src={`${import.meta.env.BASE_URL}tpl-video.mp4`} type="video/mp4" />
+              <source src={`${import.meta.env.BASE_URL}tpl.mp4`} type="video/mp4" />
+            </video>
 
-            <div className="absolute bottom-10 left-10 right-10">
-              <div className="glass-card p-6 rounded-3xl flex items-center justify-between border-white/20">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 bg-tpl-blue rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(0,210,255,0.4)]">
-                    <Trophy className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-white font-black text-xl italic uppercase">Current MVP</p>
-                    <p className="text-tpl-blue font-bold text-sm">Nayan Thorat</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <p className="text-white font-black text-2xl italic">142%</p>
-                  <p className="text-white/40 text-[10px] font-bold uppercase">Target Met</p>
-                </div>
-              </div>
+            {/* OVERLAY */}
+            <div className="absolute inset-0 opacity-60" style={{ background: 'linear-gradient(to top, #0a0500 0%, transparent 60%)' }}></div>
+              
+            <div className="absolute top-8 left-8 text-white px-4 py-2 rounded-lg font-black italic skew-x-[-15deg]"
+                 style={{ background: 'linear-gradient(135deg, #ff4500, #ff8c00)' }}>
+              PHOENIX DIVISION
             </div>
           </div>
           
-          {/* Floating Elements */}
-          <motion.div 
-            animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-            transition={{ duration: 5, repeat: Infinity }}
-            className="absolute -top-12 -left-12 glass-card p-6 rounded-3xl z-20 border-tpl-accent/30 shadow-[0_0_30px_rgba(204,255,0,0.1)]"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-tpl-accent/20 rounded-xl flex items-center justify-center text-tpl-accent">
-                <TrendingUp className="w-7 h-7" />
-              </div>
-              <div>
-                <p className="text-[10px] text-white/40 font-black uppercase tracking-widest">Live Momentum</p>
-                <p className="text-2xl font-black text-white italic">+89%</p>
-              </div>
-            </div>
-          </motion.div>
+          {/* Phoenix ember glow underneath */}
+          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 blur-3xl rounded-full opacity-40"
+               style={{ background: 'linear-gradient(90deg, #ff4500, #ff8c00, #ffd700)' }} />
         </motion.div>
       </div>
     </section>
@@ -258,13 +256,14 @@ const SectionHeading = ({ title, subtitle, light = false }: { title: string, sub
       initial={{ opacity: 0, width: 0 }}
       whileInView={{ opacity: 1, width: '100px' }}
       viewport={{ once: true }}
-      className="h-1.5 bg-tpl-accent mx-auto mb-8 skew-x-[-20deg]"
+      className="h-1.5 mx-auto mb-8 skew-x-[-20deg]"
+      style={{ background: 'linear-gradient(90deg, #ff4500, #ff8c00)' }}
     />
     <motion.p 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`text-sm font-black uppercase tracking-[0.5em] mb-4 italic ${light ? 'text-tpl-accent' : 'text-tpl-secondary'}`}
+      className={`text-sm font-black uppercase tracking-[0.5em] mb-4 italic ${light ? 'text-phoenix-gold' : 'text-orange-400'}`}
     >
       {subtitle}
     </motion.p>
@@ -273,7 +272,7 @@ const SectionHeading = ({ title, subtitle, light = false }: { title: string, sub
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: 0.1 }}
-      className={`text-5xl md:text-7xl font-black italic tracking-tighter ${light ? 'text-white' : 'text-white'}`}
+      className="text-5xl md:text-7xl font-black italic tracking-tighter text-white"
     >
       {title}
     </motion.h2>
@@ -289,8 +288,11 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-32 bg-[#050810] relative overflow-hidden">
+    <section id="about" className="py-32 bg-phoenix-dark relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+      {/* Subtle ember glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[150px] opacity-10"
+           style={{ background: 'radial-gradient(circle, #ff4500, transparent)' }} />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
@@ -299,28 +301,28 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-tpl-secondary font-black uppercase tracking-[0.4em] mb-6 italic">The Culture of Winning</p>
+            <p className="font-black uppercase tracking-[0.4em] mb-6 italic text-orange-400">The Culture of Rising</p>
             <h2 className="text-5xl md:text-7xl font-black text-white mb-10 leading-[0.9] italic">
               NOT JUST A GAME. <br />
-              <span className="text-white/20">A REVOLUTION.</span>
+              <span className="text-white/20">A REBIRTH.</span>
             </h2>
             <div className="space-y-8 text-xl text-white/60 leading-relaxed font-medium">
               <p>
-                TPL (Thore Premier League) is the ultimate proving ground. Inspired by the intensity of professional sports, we've built a league where performance is the only currency that matters.
+                TPL (Thore Premier League) is the ultimate proving ground. Inspired by the phoenix — the mythical bird that burns and rises anew — Season 4 is about transformation and dominance.
               </p>
               <p>
-                This is where the elite separate themselves from the pack. With real-time tracking, massive rewards, and a culture of relentless excellence, TPL is the heartbeat of our sales force.
+                True champions aren't born. They're forged in fire. With real-time tracking, massive rewards, and a culture of relentless excellence, the Phoenix era begins now.
               </p>
             </div>
             
             <div className="grid grid-cols-2 gap-8 mt-16">
-              <div className="p-8 glass-card rounded-3xl border-tpl-accent/20">
-                <h4 className="font-black text-3xl text-tpl-accent mb-2 italic">MOTIVATE</h4>
+              <div className="p-8 glass-card rounded-3xl border-orange-500/20">
+                <h4 className="font-black text-3xl mb-2 italic" style={{ background: 'linear-gradient(135deg, #ff4500, #ff8c00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>IGNITE</h4>
                 <p className="text-sm text-white/40 font-bold uppercase tracking-wider">Fueling the fire</p>
               </div>
-              <div className="p-8 glass-card rounded-3xl border-tpl-secondary/20">
-                <h4 className="font-black text-3xl text-tpl-secondary mb-2 italic">DOMINATE</h4>
-                <p className="text-sm text-white/40 font-bold uppercase tracking-wider">Setting the pace</p>
+              <div className="p-8 glass-card rounded-3xl border-yellow-500/20">
+                <h4 className="font-black text-3xl text-phoenix-gold mb-2 italic">ASCEND</h4>
+                <p className="text-sm text-white/40 font-bold uppercase tracking-wider">Rise from ashes</p>
               </div>
             </div>
           </motion.div>
@@ -335,8 +337,10 @@ const About = () => {
                 transition={{ delay: i * 0.1 }}
                 className="p-10 rounded-[2.5rem] glass-card glass-card-hover group relative overflow-hidden"
               >
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-tpl-accent/5 rounded-full blur-2xl group-hover:bg-tpl-accent/20 transition-all"></div>
-                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-tpl-accent mb-8 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(204,255,0,0.1)]">
+                <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-all"
+                     style={{ background: 'radial-gradient(circle, rgba(255,80,0,0.15), transparent)' }}></div>
+                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-orange-400 mb-8 group-hover:scale-110 transition-transform"
+                     style={{ boxShadow: '0 0 20px rgba(255,80,0,0.1)' }}>
                   <f.icon className="w-9 h-9" />
                 </div>
                 <h3 className="text-2xl font-black text-white mb-4 italic uppercase">{f.title}</h3>
@@ -352,10 +356,10 @@ const About = () => {
 
 const Metrics = () => {
   return (
-    <section id="metrics" className="py-32 bg-tpl-primary relative overflow-hidden">
-      {/* Dynamic Grid Background */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-tpl-primary via-transparent to-tpl-primary"></div>
+    <section id="metrics" className="py-32 bg-phoenix-deeper relative overflow-hidden">
+      {/* Grid background */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,80,0,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,80,0,0.3) 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #050200, transparent, #050200)' }}></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading title="League Stats" subtitle="The Scoreboard" light />
@@ -369,10 +373,12 @@ const Metrics = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
               whileHover={{ scale: 1.05, rotate: i % 2 === 0 ? 1 : -1 }}
-              className="p-10 rounded-[2rem] glass-card border-white/5 text-center group relative"
+              className="p-10 rounded-[2rem] glass-card border-white/5 text-center group relative overflow-hidden"
             >
-              <div className="absolute inset-0 bg-tpl-accent/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-[2rem]"></div>
-              <div className="w-14 h-14 bg-tpl-accent/10 rounded-2xl flex items-center justify-center text-tpl-accent mx-auto mb-6 group-hover:shadow-[0_0_20px_rgba(204,255,0,0.3)] transition-all">
+              <div className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity"
+                   style={{ background: 'radial-gradient(circle at center, rgba(255,80,0,0.05), transparent)' }}></div>
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-orange-400 mx-auto mb-6 group-hover:scale-110 transition-all"
+                   style={{ background: 'rgba(255,80,0,0.1)', boxShadow: '0 0 0 0 rgba(255,80,0,0)' }}>
                 <m.icon className="w-8 h-8" />
               </div>
               <p className="text-4xl font-black text-white mb-2 italic tracking-tighter">{m.value}</p>
@@ -408,7 +414,7 @@ const Leaderboard = () => {
   }, []);
 
   return (
-    <section id="leaderboard" className="py-32 bg-[#050810] relative overflow-hidden">
+    <section id="leaderboard" className="py-32 bg-phoenix-dark relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading title="Live Rankings" subtitle="The Arena" />
         
@@ -416,21 +422,23 @@ const Leaderboard = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="glass-card rounded-[3rem] p-16 text-center relative overflow-hidden border-white/5"
+          className="glass-card rounded-[3rem] p-16 text-center relative overflow-hidden border-orange-500/10"
         >
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-tpl-accent to-transparent opacity-50"></div>
-          <Trophy className="absolute -bottom-20 -right-20 w-96 h-96 text-white/5 -rotate-12 pointer-events-none" />
+          <div className="absolute top-0 left-0 w-full h-1" style={{ background: 'linear-gradient(90deg, transparent, #ff4500, #ff8c00, transparent)' }}></div>
+          <Trophy className="absolute -bottom-20 -right-20 w-96 h-96 text-orange-500/5 -rotate-12 pointer-events-none" />
           
           {isActive ? (
             <div className="relative z-10">
-              <div className="w-24 h-24 bg-tpl-accent/10 rounded-full flex items-center justify-center text-tpl-accent mx-auto mb-10 shadow-[0_0_50px_rgba(204,255,0,0.2)]">
-                <Zap className="w-12 h-12 fill-tpl-accent animate-pulse" />
+              <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-10"
+                   style={{ background: 'rgba(255,80,0,0.1)', boxShadow: '0 0 50px rgba(255,80,0,0.2)' }}>
+                <Flame className="w-12 h-12 fill-orange-400 text-orange-400 animate-pulse" />
               </div>
               <h3 className="text-4xl font-black text-white mb-6 italic uppercase">ARENA IS ACTIVE!</h3>
               <p className="text-white/50 mb-12 max-w-md mx-auto text-lg font-medium">
                 The numbers are moving. The rankings are shifting. Witness the battle in real-time.
               </p>
-              <button className="bg-tpl-accent text-tpl-primary px-12 py-6 rounded-2xl font-black text-xl shadow-[0_0_40px_rgba(204,255,0,0.3)] flex items-center gap-4 mx-auto transition-all transform hover:scale-105 italic uppercase">
+              <button className="text-white px-12 py-6 rounded-2xl font-black text-xl flex items-center gap-4 mx-auto transition-all transform hover:scale-105 italic uppercase"
+                      style={{ background: 'linear-gradient(135deg, #ff4500, #ff8c00)', boxShadow: '0 0 40px rgba(255,80,0,0.3)' }}>
                 ACCESS LIVE FEED <ExternalLink className="w-6 h-6" />
               </button>
             </div>
@@ -443,9 +451,9 @@ const Leaderboard = () => {
               <p className="text-white/40 mb-10 max-w-md mx-auto text-lg font-medium">
                 The warriors are resting. The data is being verified. The next battle begins soon.
               </p>
-              <div className="inline-flex items-center gap-4 bg-white/5 px-8 py-4 rounded-2xl border border-white/10">
-                <Calendar className="w-6 h-6 text-tpl-accent" />
-                <span className="text-tpl-accent font-black uppercase tracking-widest italic">NEXT UPDATE: {nextDate}</span>
+              <div className="inline-flex items-center gap-4 bg-white/5 px-8 py-4 rounded-2xl border border-orange-500/20">
+                <Calendar className="w-6 h-6 text-orange-400" />
+                <span className="text-orange-400 font-black uppercase tracking-widest italic">NEXT UPDATE: {nextDate}</span>
               </div>
             </div>
           )}
@@ -463,19 +471,20 @@ const TeamModal = ({ team, onClose }: { team: any, onClose: () => void }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-tpl-primary/90 backdrop-blur-xl"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-xl"
+      style={{ background: 'rgba(5,2,0,0.92)' }}
       onClick={onClose}
     >
       <motion.div 
         initial={{ scale: 0.9, y: 20, rotateX: 20 }}
         animate={{ scale: 1, y: 0, rotateX: 0 }}
         exit={{ scale: 0.9, y: 20, rotateX: 20 }}
-        className="glass-card rounded-[3rem] w-full max-w-4xl overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)] border-white/10"
+        className="glass-card rounded-[3rem] w-full max-w-4xl overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)] border-orange-500/10"
         onClick={e => e.stopPropagation()}
       >
         <div className="relative h-80">
           <img src={team.image} alt={team.name} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" referrerPolicy="no-referrer" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050810] via-[#050810]/40 to-transparent"></div>
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #050200 0%, rgba(5,2,0,0.4) 60%, transparent 100%)' }}></div>
           <button onClick={onClose} className="absolute top-8 right-8 w-12 h-12 glass-card hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-all z-20">
             <X className="w-6 h-6" />
           </button>
@@ -483,16 +492,17 @@ const TeamModal = ({ team, onClose }: { team: any, onClose: () => void }) => {
             <motion.div 
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              className="bg-tpl-accent text-tpl-primary px-4 py-1 rounded-lg font-black italic skew-x-[-15deg] mb-4 inline-block"
+              className="text-white px-4 py-1 rounded-lg font-black italic skew-x-[-15deg] mb-4 inline-block"
+              style={{ background: 'linear-gradient(135deg, #ff4500, #ff8c00)' }}
             >
               TEAM PROFILE
             </motion.div>
             <h3 className="text-5xl font-black text-white italic uppercase tracking-tighter">{team.name}</h3>
-            <p className="text-tpl-blue font-bold text-lg">Led by {team.leader}</p>
+            <p className="text-orange-300 font-bold text-lg">Led by {team.leader}</p>
           </div>
         </div>
 
-        <div className="p-12 grid md:grid-cols-2 gap-12 bg-[#050810]/50">
+        <div className="p-12 grid md:grid-cols-2 gap-12" style={{ background: 'rgba(5,2,0,0.5)' }}>
           <div>
             <h4 className="text-xs font-black text-white/30 uppercase tracking-[0.3em] mb-8 italic">Performance Matrix</h4>
             <div className="grid grid-cols-2 gap-6">
@@ -500,8 +510,8 @@ const TeamModal = ({ team, onClose }: { team: any, onClose: () => void }) => {
                 <p className="text-3xl font-black text-white italic">{team.seasons}</p>
                 <p className="text-[10px] text-white/30 font-black uppercase tracking-widest">Seasons</p>
               </div>
-              <div className="p-6 glass-card rounded-2xl border-tpl-secondary/20">
-                <p className="text-3xl font-black text-tpl-secondary italic">{team.wins}</p>
+              <div className="p-6 glass-card rounded-2xl border-orange-500/20">
+                <p className="text-3xl font-black italic" style={{ color: '#ff8c00' }}>{team.wins}</p>
                 <p className="text-[10px] text-white/30 font-black uppercase tracking-widest">Titles</p>
               </div>
             </div>
@@ -511,7 +521,7 @@ const TeamModal = ({ team, onClose }: { team: any, onClose: () => void }) => {
               <div className="flex flex-wrap gap-3">
                 {team.rankings.map((rank: string, i: number) => (
                   <div key={i} className="px-5 py-2.5 glass-card rounded-xl border-white/10 text-white font-black italic">
-                    S{i+1}: <span className="text-tpl-accent">{rank}</span>
+                    S{i+1}: <span style={{ color: '#ff8c00' }}>{rank}</span>
                   </div>
                 ))}
               </div>
@@ -523,8 +533,9 @@ const TeamModal = ({ team, onClose }: { team: any, onClose: () => void }) => {
               <h4 className="text-xs font-black text-white/30 uppercase tracking-[0.3em] mb-6 italic">Elite Players</h4>
               <div className="grid gap-4">
                 {team.notablePlayers.map((player: string) => (
-                  <div key={player} className="flex items-center gap-4 p-4 glass-card rounded-2xl border-white/5 hover:border-tpl-blue/30 transition-colors group">
-                    <div className="w-10 h-10 bg-tpl-blue/20 rounded-xl flex items-center justify-center text-tpl-blue font-black group-hover:bg-tpl-blue group-hover:text-white transition-all">
+                  <div key={player} className="flex items-center gap-4 p-4 glass-card rounded-2xl border-white/5 hover:border-orange-500/30 transition-colors group">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center font-black group-hover:text-white transition-all"
+                         style={{ background: 'rgba(255,80,0,0.1)', color: '#ff8c00' }}>
                       {player.charAt(0)}
                     </div>
                     <span className="font-black text-white italic uppercase tracking-tight">{player}</span>
@@ -533,9 +544,10 @@ const TeamModal = ({ team, onClose }: { team: any, onClose: () => void }) => {
               </div>
             </div>
 
-            <div className="p-8 bg-tpl-accent rounded-[2rem] text-tpl-primary relative overflow-hidden">
-              <Zap className="absolute -bottom-4 -right-4 w-24 h-24 text-tpl-primary/10 rotate-12" />
-              <p className="text-[10px] font-black uppercase tracking-widest mb-3 opacity-50">Team Creed</p>
+            <div className="p-8 rounded-[2rem] text-white relative overflow-hidden"
+                 style={{ background: 'linear-gradient(135deg, #ff4500, #ff8c00)' }}>
+              <Flame className="absolute -bottom-4 -right-4 w-24 h-24 text-white/10 rotate-12" />
+              <p className="text-[10px] font-black uppercase tracking-widest mb-3 opacity-70">Team Creed</p>
               <p className="text-xl font-black italic leading-tight">"WE DON'T COMPETE WITH OTHERS. WE COMPETE WITH OUR POTENTIAL."</p>
             </div>
           </div>
@@ -549,7 +561,7 @@ const Teams = () => {
   const [selectedTeam, setSelectedTeam] = useState<any>(null);
 
   return (
-    <section id="teams" className="py-32 bg-[#050810] relative">
+    <section id="teams" className="py-32 bg-phoenix-dark relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title="The Factions" subtitle="Select Your Squad" />
         
@@ -565,18 +577,18 @@ const Teams = () => {
               onClick={() => setSelectedTeam(team)}
               className="group cursor-pointer relative"
             >
-              <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 shadow-2xl border-2 border-white/5 group-hover:border-tpl-accent/50 transition-all duration-500">
+              <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 shadow-2xl border-2 border-white/5 group-hover:border-orange-500/50 transition-all duration-500">
                 <img src={team.image} alt={team.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" referrerPolicy="no-referrer" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050810] via-transparent to-transparent opacity-90"></div>
+                <div className="absolute inset-0 opacity-90" style={{ background: 'linear-gradient(to top, #050200, transparent 60%)' }}></div>
                 
                 <div className="absolute bottom-8 left-8 right-8">
                   <p className="text-white font-black text-2xl italic uppercase leading-[0.9] mb-2">{team.name.replace('Team ', '')}</p>
-                  <div className="h-1 w-0 bg-tpl-accent group-hover:w-full transition-all duration-500"></div>
+                  <div className="h-1 w-0 group-hover:w-full transition-all duration-500" style={{ background: 'linear-gradient(90deg, #ff4500, #ff8c00)' }}></div>
                   <p className="text-white/40 text-[10px] font-black uppercase tracking-[0.2em] mt-4">Analyze Stats</p>
                 </div>
                 
                 <div className="absolute top-6 right-6 w-12 h-12 glass-card rounded-2xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0">
-                  <ChevronRight className="w-7 h-7 text-tpl-accent" />
+                  <ChevronRight className="w-7 h-7 text-orange-400" />
                 </div>
               </div>
             </motion.div>
@@ -593,7 +605,7 @@ const Teams = () => {
 
 const WallOfFame = () => {
   return (
-    <section id="wall-of-fame" className="py-32 bg-[#050810] relative overflow-hidden">
+    <section id="wall-of-fame" className="py-32 bg-phoenix-deeper relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -607,13 +619,16 @@ const WallOfFame = () => {
               whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.8 }}
-              className={`p-12 rounded-[3rem] border relative group overflow-hidden ${season.status === 'Coming Soon' ? 'bg-white/5 border-white/10 opacity-40' : 'glass-card border-white/10 shadow-[0_0_50px_rgba(204,255,0,0.05)]'}`}
+              className={`p-12 rounded-[3rem] border relative group overflow-hidden ${season.status === 'Coming Soon' ? 'bg-white/5 border-white/10 opacity-40' : 'glass-card border-orange-500/10'}`}
+              style={season.status !== 'Coming Soon' ? { boxShadow: '0 0 50px rgba(255,80,0,0.05)' } : {}}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-tpl-accent/5 rounded-full blur-3xl group-hover:bg-tpl-accent/10 transition-all"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl group-hover:opacity-100 opacity-0 transition-all"
+                   style={{ background: 'radial-gradient(circle, rgba(255,80,0,0.1), transparent)' }}></div>
               
               <div className="flex justify-between items-start mb-12">
                 <h3 className="text-4xl font-black italic tracking-tighter">{season.season}</h3>
-                <Trophy className={`w-12 h-12 ${season.status === 'Coming Soon' ? 'text-white/10' : 'text-tpl-accent drop-shadow-[0_0_10px_rgba(204,255,0,0.5)]'}`} />
+                <Trophy className={`w-12 h-12 ${season.status === 'Coming Soon' ? 'text-white/10' : 'text-orange-400'}`}
+                        style={season.status !== 'Coming Soon' ? { filter: 'drop-shadow(0 0 10px rgba(255,140,0,0.5))' } : {}} />
               </div>
 
               {season.status === 'Coming Soon' ? (
@@ -623,22 +638,25 @@ const WallOfFame = () => {
               ) : (
                 <>
                   <div className="mb-12">
-                    <p className="text-[10px] font-black text-tpl-accent uppercase tracking-[0.3em] mb-6 italic">Individual MVPs</p>
+                    <p className="text-[10px] font-black text-orange-400 uppercase tracking-[0.3em] mb-6 italic">Individual MVPs</p>
                     <div className="space-y-5">
                       {season.winners.map((winner, idx) => (
                         <div key={winner} className="flex items-center gap-5 group/winner">
-                          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-sm font-black italic border border-white/10 group-hover/winner:bg-tpl-accent group-hover/winner:text-tpl-primary transition-all">
+                          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-sm font-black italic border border-white/10 group-hover/winner:text-white transition-all"
+                               style={{ '--hover-bg': 'linear-gradient(135deg, #ff4500, #ff8c00)' } as React.CSSProperties}
+                               onMouseEnter={e => (e.currentTarget.style.background = 'linear-gradient(135deg, #ff4500, #ff8c00)')}
+                               onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}>
                             0{idx + 1}
                           </div>
-                          <span className="text-xl font-black italic uppercase tracking-tight group-hover/winner:text-tpl-accent transition-colors">{winner}</span>
+                          <span className="text-xl font-black italic uppercase tracking-tight group-hover/winner:text-orange-400 transition-colors">{winner}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                   
                   <div className="pt-10 border-t border-white/5">
-                    <p className="text-[10px] font-black text-tpl-blue uppercase tracking-[0.3em] mb-3 italic">Team Dynasty</p>
-                    <p className="text-2xl font-black italic uppercase tracking-tighter text-white group-hover:text-tpl-blue transition-colors">{season.teamWinner}</p>
+                    <p className="text-[10px] font-black text-phoenix-gold uppercase tracking-[0.3em] mb-3 italic">Team Dynasty</p>
+                    <p className="text-2xl font-black italic uppercase tracking-tighter text-white group-hover:text-phoenix-gold transition-colors">{season.teamWinner}</p>
                   </div>
                 </>
               )}
@@ -650,9 +668,163 @@ const WallOfFame = () => {
   );
 };
 
+// Season Logos Section (replacing Future Scope)
+const SeasonLogos = () => {
+  const seasons = [
+    {
+      number: 1,
+      title: 'Season 1',
+      subtitle: 'The Beginning',
+      status: 'completed',
+      year: '2023',
+      champion: 'Team Nayan Thorat',
+      icon: '🏆',
+    },
+    {
+      number: 2,
+      title: 'Season 2',
+      subtitle: 'The Rivalry',
+      status: 'completed',
+      year: '2024',
+      champion: 'Team Himanshu Kumar',
+      icon: '⚡',
+    },
+    {
+      number: 3,
+      title: 'Season 3',
+      subtitle: 'The Reckoning',
+      status: 'completed',
+      year: '2025',
+      champion: 'TBD',
+      icon: '🎯',
+    },
+    {
+      number: 4,
+      title: 'Season 4',
+      subtitle: 'The Phoenix',
+      status: 'active',
+      year: '2026',
+      champion: 'IN PROGRESS',
+      icon: '🔥',
+    },
+  ];
+
+  return (
+    <section className="py-32 bg-phoenix-dark relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
+      {/* Central fire glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] rounded-full blur-[120px] opacity-10"
+           style={{ background: 'linear-gradient(90deg, transparent, #ff4500, #ff8c00, #ffd700, transparent)' }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <SectionHeading title="The TPL Era" subtitle="Seasons Legacy" light />
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {seasons.map((season, i) => (
+            <motion.div
+              key={season.number}
+              initial={{ opacity: 0, y: 40, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.7, type: 'spring' }}
+              whileHover={{ y: -10, scale: 1.03 }}
+              className={`relative group rounded-[2.5rem] overflow-hidden border transition-all duration-500 ${
+                season.status === 'active' 
+                  ? 'border-orange-500/40' 
+                  : 'border-white/10 hover:border-orange-500/20'
+              }`}
+              style={season.status === 'active' ? { boxShadow: '0 0 60px rgba(255,80,0,0.15), 0 0 120px rgba(255,140,0,0.05)' } : {}}
+            >
+              {/* Background */}
+              <div className={`absolute inset-0 ${season.status === 'active' ? '' : 'glass-card'}`}
+                   style={season.status === 'active' 
+                     ? { background: 'linear-gradient(135deg, rgba(255,80,0,0.15), rgba(255,140,0,0.08), rgba(255,200,0,0.05))' } 
+                     : {}} />
+              
+              {/* Active season top bar */}
+              {season.status === 'active' && (
+                <div className="absolute top-0 left-0 w-full h-1"
+                     style={{ background: 'linear-gradient(90deg, #ff4500, #ff8c00, #ffd700)' }} />
+              )}
+
+              <div className="relative z-10 p-8 flex flex-col items-center text-center min-h-[320px] justify-between">
+                {/* Season badge */}
+                <div>
+                  {/* Big emoji icon */}
+                  <div className={`text-6xl mb-6 transition-transform duration-500 group-hover:scale-110 ${season.status === 'active' ? 'animate-pulse' : ''}`}>
+                    {season.icon}
+                  </div>
+
+                  {/* Season number big display */}
+                  <div className="relative mb-4">
+                    <span className="text-8xl font-black italic tracking-tighter text-white/5 absolute -top-4 left-1/2 -translate-x-1/2 select-none pointer-events-none">{season.number}</span>
+                    <div className="relative z-10">
+                      <p className={`text-xs font-black uppercase tracking-[0.4em] mb-1 italic ${season.status === 'active' ? 'text-orange-400' : 'text-white/30'}`}>
+                        S{season.number} · {season.year}
+                      </p>
+                      <h3 className="text-2xl font-black italic uppercase text-white tracking-tight">{season.title}</h3>
+                      <p className={`text-sm font-bold mt-1 ${season.status === 'active' ? 'text-phoenix-gold' : 'text-white/40'}`}>
+                        {season.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div className={`w-12 h-px my-4 transition-all duration-500 group-hover:w-full ${season.status === 'active' ? 'w-full' : ''}`}
+                     style={{ background: season.status === 'active' ? 'linear-gradient(90deg, #ff4500, #ff8c00)' : 'rgba(255,255,255,0.1)' }} />
+
+                {/* Champion */}
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 mb-2">
+                    {season.status === 'active' ? 'Currently' : 'Champion'}
+                  </p>
+                  <p className={`text-sm font-black italic uppercase tracking-tight ${
+                    season.status === 'active' 
+                      ? 'text-orange-400 animate-pulse' 
+                      : season.champion === 'TBD' ? 'text-white/30' : 'text-white'
+                  }`}>
+                    {season.champion}
+                  </p>
+                </div>
+
+                {/* Active badge */}
+                {season.status === 'active' && (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.5, type: 'spring' }}
+                    className="absolute top-6 right-6 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-white flex items-center gap-1"
+                    style={{ background: 'linear-gradient(135deg, #ff4500, #ff8c00)' }}
+                  >
+                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping inline-block"></span>
+                    LIVE
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Timeline connector */}
+        <div className="hidden lg:flex items-center justify-center mt-16 gap-0 relative">
+          <div className="absolute top-1/2 left-[12.5%] right-[12.5%] h-px"
+               style={{ background: 'linear-gradient(90deg, rgba(255,80,0,0.3), rgba(255,140,0,0.6), rgba(255,200,0,0.4), rgba(255,80,0,0.8))' }} />
+          {seasons.map((season, i) => (
+            <div key={i} className="flex-1 flex justify-center relative z-10">
+              <div className={`w-4 h-4 rounded-full border-2 ${season.status === 'active' ? 'border-orange-400' : 'border-white/30'}`}
+                   style={season.status === 'active' ? { background: '#ff8c00', boxShadow: '0 0 20px rgba(255,140,0,0.6)' } : { background: 'rgba(255,255,255,0.1)' }} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Gallery = () => {
   return (
-    <section className="py-32 bg-[#050810]">
+    <section className="py-32 bg-phoenix-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title="Arena Visuals" subtitle="The Hype" />
         
@@ -667,9 +839,10 @@ const Gallery = () => {
               className={`relative overflow-hidden rounded-[2rem] group cursor-crosshair border-2 border-white/5 ${i === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}
             >
               <img src={img} alt="Gallery" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100" referrerPolicy="no-referrer" />
-              <div className="absolute inset-0 bg-tpl-accent/20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center backdrop-blur-sm">
-                <ImageIcon className="text-tpl-primary w-12 h-12 mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform" />
-                <p className="text-tpl-primary font-black italic uppercase tracking-widest">View Moment</p>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center backdrop-blur-sm"
+                   style={{ background: 'rgba(255,80,0,0.2)' }}>
+                <ImageIcon className="text-white w-12 h-12 mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform" />
+                <p className="text-white font-black italic uppercase tracking-widest">View Moment</p>
               </div>
             </motion.div>
           ))}
@@ -679,127 +852,24 @@ const Gallery = () => {
   );
 };
 
-const FutureScope = () => {
-  const points = [
-    { title: 'Global Expansion', desc: 'Taking the league beyond borders with international chapters.', icon: Rocket },
-    { title: 'Neural Analytics', desc: 'Real-time performance prediction using advanced AI models.', icon: BarChart3 },
-    { title: 'Legendary Rewards', desc: 'Luxury assets, equity stakes, and lifetime recognition.', icon: Award },
-  ];
-
-  return (
-    <section className="py-32 bg-[#050810]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="glass-card rounded-[4rem] p-16 md:p-24 text-white relative overflow-hidden border-white/5">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-tpl-accent/10 rounded-full blur-[100px]"></div>
-          
-          <div className="relative z-10 grid lg:grid-cols-2 gap-20 items-center">
-            <div>
-              <motion.p 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                className="text-tpl-accent font-black uppercase tracking-[0.4em] mb-6 italic"
-              >
-                The Next Phase
-              </motion.p>
-              <h2 className="text-5xl md:text-7xl font-black mb-10 leading-[0.85] italic uppercase tracking-tighter">
-                THE FUTURE IS <br /> 
-                <span className="text-tpl-accent text-glow">UNSTOPPABLE.</span>
-              </h2>
-              <p className="text-white/50 text-xl mb-12 leading-relaxed font-medium">
-                We're not just building a league; we're building a legacy. The next evolution of TPL will redefine human performance.
-              </p>
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-tpl-primary px-10 py-5 rounded-2xl font-black text-xl italic uppercase tracking-tighter hover:bg-tpl-accent transition-colors"
-              >
-                VIEW THE ROADMAP
-              </motion.button>
-            </div>
-            
-            <div className="space-y-8">
-              {points.map((p, i) => (
-                <motion.div 
-                  key={p.title} 
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex gap-8 p-8 glass-card rounded-[2.5rem] border-white/5 hover:border-tpl-accent/20 transition-all group"
-                >
-                  <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-tpl-accent shrink-0 group-hover:bg-tpl-accent group-hover:text-tpl-primary transition-all shadow-[0_0_20px_rgba(204,255,0,0.1)]">
-                    <p.icon className="w-8 h-8" />
-                  </div>
-                  <div>
-                    <h4 className="font-black text-2xl mb-2 italic uppercase tracking-tight">{p.title}</h4>
-                    <p className="text-white/40 text-sm font-medium leading-relaxed">{p.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const JoinTheHunt = () => {
-  return (
-    <section className="py-32 bg-[#050810] relative overflow-hidden">
-      <div className="absolute inset-0 sports-gradient opacity-10"></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass-card rounded-[4rem] p-16 md:p-32 text-center border-tpl-accent/20 relative overflow-hidden"
-        >
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-          <div className="relative z-10">
-            <h2 className="text-6xl md:text-9xl font-black text-white italic uppercase tracking-tighter leading-[0.8] mb-10">
-              ARE YOU <br />
-              <span className="text-tpl-accent text-glow">READY?</span>
-            </h2>
-            <p className="text-white/50 text-xl md:text-2xl mb-16 max-w-2xl mx-auto font-medium">
-              The arena is open. The legends are waiting. Your journey to the top of the TPL leaderboard starts here.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-8 justify-center">
-              <motion.button 
-                whileHover={{ scale: 1.05, rotate: -1 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-tpl-accent text-tpl-primary px-16 py-8 rounded-2xl font-black text-2xl italic uppercase tracking-tighter shadow-[0_0_50px_rgba(204,255,0,0.4)]"
-              >
-                JOIN THE HUNT
-              </motion.button>
-              <motion.button 
-                whileHover={{ scale: 1.05, rotate: 1 }}
-                whileTap={{ scale: 0.95 }}
-                className="glass-card text-white px-16 py-8 rounded-2xl font-black text-2xl italic uppercase tracking-tighter border-white/10 hover:bg-white/10 transition-all"
-              >
-                THE RULES
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
 const Footer = () => {
   return (
-    <footer className="bg-[#050810] py-20 border-t border-white/5">
+    <footer className="bg-phoenix-deeper py-20 border-t border-orange-500/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-12">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-tpl-accent rounded-xl flex items-center justify-center text-tpl-primary font-black italic text-2xl skew-x-[-10deg]">T</div>
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center skew-x-[-10deg]"
+                 style={{ background: 'linear-gradient(135deg, #ff4500, #ff8c00)' }}>
+              <Flame className="w-7 h-7 fill-white text-white" />
+            </div>
             <span className="text-3xl font-black tracking-tighter text-white italic uppercase">TPL</span>
+            <span className="text-xs text-orange-400/60 font-black uppercase tracking-widest mt-1 italic">Phoenix S4</span>
           </div>
           
           <div className="flex gap-10 text-xs font-black text-white/30 uppercase tracking-[0.2em] italic">
-            <a href="#" className="hover:text-tpl-accent transition-colors">Privacy</a>
-            <a href="#" className="hover:text-tpl-accent transition-colors">Terms</a>
-            <a href="#" className="hover:text-tpl-accent transition-colors">Contact</a>
+            <a href="#" className="hover:text-orange-400 transition-colors">Privacy</a>
+            <a href="#" className="hover:text-orange-400 transition-colors">Terms</a>
+            <a href="#" className="hover:text-orange-400 transition-colors">Contact</a>
           </div>
           
           <p className="text-white/20 text-[10px] font-black uppercase tracking-[0.3em] italic">
@@ -822,8 +892,7 @@ export default function App() {
       <Teams />
       <WallOfFame />
       <Gallery />
-      <FutureScope />
-      <JoinTheHunt />
+      <SeasonLogos />
       <Footer />
     </div>
   );
