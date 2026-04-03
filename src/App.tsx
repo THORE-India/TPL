@@ -201,7 +201,7 @@ const Hero = () => {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src={`${import.meta.env.BASE_URL}/public/tpl-video.mp4`} type="video/mp4" />
+            <source src={`${import.meta.env.BASE_URL}public/tpl-video.mp4`} type="video/mp4" />
           </video>
         
           {/* OVERLAY */}
