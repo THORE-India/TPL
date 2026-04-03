@@ -122,8 +122,7 @@ const Hero = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src={`${import.meta.env.BASE_URL}tpl.webm`} type="video/webm" />
-          <source src={`${import.meta.env.BASE_URL}tpl-video.mp4`} type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}tpl_cut.webm`} type="video/webm" />
         </video>
         {/* Bottom-heavy dark overlay so text at bottom stays readable */}
         <div className="absolute inset-0" style={{
