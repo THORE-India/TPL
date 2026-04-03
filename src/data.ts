@@ -22,7 +22,7 @@ export const TPL_DATA = {
       wins: 1,
       rankings: ['2nd', '1st', '3rd'],
       notablePlayers: ['Rahul S.', 'Priya M.'],
-      image: 'https://i.postimg.cc/bN5Pv4Cm/Himanshu-Kumar-Team-Season-2.png',
+      image: 'https://i.postimg.cc/NFh2x8h6/Himanshu-Kumar-Team-Season-2.webp',
     },
     {
       id: 'nayan',
@@ -32,7 +32,7 @@ export const TPL_DATA = {
       wins: 2,
       rankings: ['1st', '2nd', '1st'],
       notablePlayers: ['Amit K.', 'Sonal V.'],
-      image: 'https://i.postimg.cc/vHV9qwnR/Nayan-Thorat-Team-Season-2.png',
+      image: 'https://i.postimg.cc/zGdLQYmp/Nayan-Thorat-Team-Season-2.webp',
     },
     {
       id: 'omkar',
@@ -42,7 +42,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['4th', '3rd', '2nd'],
       notablePlayers: ['Kiran P.', 'Deepak R.'],
-      image: 'https://i.postimg.cc/cJFByqBM/Omkar-Dhawale-Team-Season-2-2.png',
+      image: 'https://i.postimg.cc/1Rp8Qqh3/Omkar-Dhawale-Team-Season-2-(2).webp',
     },
     {
       id: 'pintu',
@@ -52,7 +52,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['5th', '4th'],
       notablePlayers: ['Vikram S.', 'Anjali T.'],
-      image: 'https://i.postimg.cc/J0bTWDFk/Akshay-Marathe-Team-Season-2.png',
+      image: 'https://i.postimg.cc/MK6pJ3Yn/Akshay-Marathe-Team-Season-2.webp',
     },
     {
       id: 'ahsan',
@@ -62,7 +62,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['3rd', '5th', '4th'],
       notablePlayers: ['Zaid M.', 'Farah K.'],
-      image: 'https://i.postimg.cc/RV75LqXf/Ahsan-Khan-Team-Season-2.png',
+      image: 'https://i.postimg.cc/7hxwDb0g/Ahsan-Khan-Team-Season-2.webp',
     },
     {
       id: 'krishna',
@@ -82,7 +82,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['7th', '7th'],
       notablePlayers: ['Manoj K.', 'Suresh P.'],
-      image: 'https://i.postimg.cc/VNNmLMXB/Akhilesh-Pandey-Team-Season-2-1.png',
+      image: 'https://i.postimg.cc/85Xtk0rK/Akhilesh-Pandey-Team-Season-2-(1).webp',
     },
     {
       id: 'onkar-p',
@@ -92,7 +92,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['8th', '8th', '6th'],
       notablePlayers: ['Tanmay P.', 'Sneha L.'],
-      image: 'https://i.postimg.cc/Vvys5pkm/Onkar-Patil-Team-Season-2.png',
+      image: 'https://i.postimg.cc/NfHpYbG3/Onkar-Patil-Team-Season-2.webp',
     },
     {
       id: 'amit',
@@ -102,7 +102,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['9th', '9th'],
       notablePlayers: ['Rohan W.', 'Neha G.'],
-      image: 'https://i.postimg.cc/DyTsMYdY/Amit-Wadkar-Team-Season-2.png',
+      image: 'https://i.postimg.cc/76hnRnQ5/Amit-Wadkar-Team-Season-2.webp',
     },
     {
       id: 'hardik',
@@ -112,7 +112,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['10th', '10th', '7th'],
       notablePlayers: ['Jatin M.', 'Esha D.'],
-      image: 'https://i.postimg.cc/wMjkxpqN/Generated-Image-February-24-2026-2-41PM.png',
+      image: 'https://i.postimg.cc/YSqPpgsw/Hardik-mehta-season-2.webp',
     },
   ],
   wallOfFame: [
