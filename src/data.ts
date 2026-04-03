@@ -1,17 +1,28 @@
 import { Trophy, Users, Target, Calendar, TrendingUp, Award, Star, Zap, BarChart3, MapPin, Video, UserCheck, Briefcase } from 'lucide-react';
 
+// Calculate Competition Days
+const startDate: Date = new Date('2025-07-01');
+const today: Date = new Date();
+
+// Avoid time-related issues
+startDate.setHours(0, 0, 0, 0);
+today.setHours(0, 0, 0, 0);
+
+const diffTime: number = today.getTime() - startDate.getTime();
+const diffDays: number = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
 export const TPL_DATA = {
   metrics: [
     { label: 'Total Seasons', value: '3', icon: Trophy },
-    { label: 'Competition Days', value: '90+', icon: Calendar },
-    { label: 'Participants', value: '150+', icon: Users },
-    { label: 'Total Teams', value: '10', icon: Target },
-    { label: 'Total Bookings', value: '450', icon: Award },
-    { label: 'Total Tokens', value: '1200', icon: Star },
-    { label: 'Site Visits', value: '2500+', icon: MapPin },
-    { label: 'Total VCs', value: '800+', icon: Video },
-    { label: 'Total F2Fs', value: '600+', icon: UserCheck },
-    { label: 'Total OBMs', value: '300+', icon: Briefcase },
+    { label: 'Competition Days', value: `${diffDays}+`, icon: Calendar },
+    { label: 'Participants', value: '75+', icon: Users },
+    { label: 'Total Teams', value: '12', icon: Target },
+    { label: 'Total Bookings', value: '225+', icon: Award },
+    { label: 'Total Tokens', value: '275+', icon: Star },
+    { label: 'Site Visits', value: '2250+', icon: MapPin },
+    { label: 'Total VCs', value: '1100+', icon: Video },
+    { label: 'Total F2Fs', value: '850+', icon: UserCheck },
+    { label: 'Total OBMs', value: '200+', icon: Briefcase },
   ],
   teams: [
     {
@@ -124,7 +135,7 @@ export const TPL_DATA = {
     {
       season: 'Season 2',
       winners: ['Nayan Thorat', 'Akash Deshbratar', 'Harjot Saini'],
-      teamWinner: 'Team Himanshu Kumar',
+      teamWinner: 'Team Nayan Thorat',
     },
     {
       season: 'Season 3',
@@ -133,11 +144,12 @@ export const TPL_DATA = {
     },
   ],
   gallery: [
-    'https://i.postimg.cc/TPHjhXhk/Generated-Image-October-05-2025-12-58-AM.png',
-    'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1531545517296-1661c624b3ac?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
+    'https://i.postimg.cc/KjTJPqhP/20251015-DSC-5315-new.jpg',
+    'https://i.imgur.com/z4xHI1l.jpeg',
+    'https://i.postimg.cc/qMbfnL68/20251015-DSC-4794.webp',
+    'https://i.postimg.cc/6QZFkxjH/20251015-DSC-4691.webp',
+    'https://i.postimg.cc/J4JJHTFm/IMG20250722110214.jpg',
+    'https://i.postimg.cc/pTbMrL5W/20251015-DSC-4864.webp',
+    'https://i.postimg.cc/bvSLvjsP/20250805-1154-Thore-Trophy-Arrival-remix-01k1webccbe7y99g6k4kqswwnq.png',
   ],
 };
