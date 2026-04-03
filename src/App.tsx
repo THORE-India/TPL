@@ -230,7 +230,7 @@ const Hero = () => {
           <div className="relative z-10 rounded-[3rem] overflow-hidden border-8 border-orange-500/10 animate-float"
                style={{ boxShadow: '0 0 80px rgba(255,80,0,0.25), 0 0 160px rgba(255,140,0,0.1)' }}>
             <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-              <source src={`${import.meta.env.BASE_URL}tpl.mp4`} type="video/mp4" />
+              <source src={`${import.meta.env.BASE_URL}tpl.webm`} type="video/webm" />
             </video>
             <div className="absolute inset-0 opacity-60" style={{ background: 'linear-gradient(to top, #0a0500 0%, transparent 60%)' }}></div>
             <div className="absolute top-8 left-8 text-white px-4 py-2 rounded-lg font-black italic skew-x-[-15deg]"
