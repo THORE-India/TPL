@@ -200,8 +200,7 @@ const Hero = () => {
               THE RULES
             </motion.a>
           </div>
-        </motion.div>
-
+        
         <motion.div
           initial={{ opacity: 0, scale: 0.5, rotate: 10 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
