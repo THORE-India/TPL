@@ -162,6 +162,24 @@ const Hero = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+        
+        {/* LEFT COLUMN */}
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-xl border border-orange-500/20 px-6 py-2.5 rounded-full text-phoenix-gold text-sm font-black italic tracking-widest mb-8"
+            style={{ boxShadow: '0 0 30px rgba(255,140,0,0.15)' }}
+          >
+            <Flame className="w-5 h-5 fill-orange-400 text-orange-400 animate-pulse" />
+            <span>SEASON 4: THE PHOENIX RISES</span>
+          </motion.div>
+      
           <h1 className="text-7xl md:text-9xl font-black text-white leading-[0.85] mb-8 italic">
             THORE <br />
             <span className="phoenix-text-gradient">PREMIER</span> <br />
@@ -200,7 +218,9 @@ const Hero = () => {
               THE RULES
             </motion.a>
           </div>
-        
+        </motion.div>
+      
+        {/* RIGHT COLUMN - Video */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5, rotate: 10 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -209,25 +229,20 @@ const Hero = () => {
         >
           <div className="relative z-10 rounded-[3rem] overflow-hidden border-8 border-orange-500/10 animate-float"
                style={{ boxShadow: '0 0 80px rgba(255,80,0,0.25), 0 0 160px rgba(255,140,0,0.1)' }}>
-            {/* VIDEO */}
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            >
+            <video autoPlay loop muted playsInline className="w-full h-full object-cover">
               <source src={`${import.meta.env.BASE_URL}tpl-video.mp4`} type="video/mp4" />
             </video>
-
-            {/* OVERLAY */}
             <div className="absolute inset-0 opacity-60" style={{ background: 'linear-gradient(to top, #0a0500 0%, transparent 60%)' }}></div>
-              
             <div className="absolute top-8 left-8 text-white px-4 py-2 rounded-lg font-black italic skew-x-[-15deg]"
                  style={{ background: 'linear-gradient(135deg, #ff4500, #ff8c00)' }}>
               TPL S4
             </div>
           </div>
+          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 blur-3xl rounded-full opacity-40"
+               style={{ background: 'linear-gradient(90deg, #ff4500, #ff8c00, #ffd700)' }} />
+        </motion.div>
+      
+      </div>
           
           {/* Phoenix ember glow underneath */}
           <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 blur-3xl rounded-full opacity-40"
@@ -467,10 +482,10 @@ const TeamModal = ({ team, onClose }: { team: any, onClose: () => void }) => {
         initial={{ scale: 0.9, y: 20, rotateX: 20 }}
         animate={{ scale: 1, y: 0, rotateX: 0 }}
         exit={{ scale: 0.9, y: 20, rotateX: 20 }}
-        className="glass-card rounded-[3rem] w-full max-w-4xl overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)] border-orange-500/10"
+        className="glass-card rounded-[3rem] w-full max-w-3xl max-h-[90vh] overflow-y-auto overflow-x-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)] border-orange-500/10"
         onClick={e => e.stopPropagation()}
       >
-        <div className="relative h-80">
+        <div className="relative h-56">
           <img src={team.image} alt={team.name} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" referrerPolicy="no-referrer" />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #050200 0%, rgba(5,2,0,0.4) 60%, transparent 100%)' }}></div>
           <button onClick={onClose} className="absolute top-8 right-8 w-12 h-12 glass-card hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-all z-20">
@@ -490,7 +505,7 @@ const TeamModal = ({ team, onClose }: { team: any, onClose: () => void }) => {
           </div>
         </div>
 
-        <div className="p-12 grid md:grid-cols-2 gap-12" style={{ background: 'rgba(5,2,0,0.5)' }}>
+        <div className="p-8 grid md:grid-cols-2 gap-8" style={{ background: 'rgba(5,2,0,0.5)' }}>
           <div>
             <h4 className="text-xs font-black text-white/30 uppercase tracking-[0.3em] mb-8 italic">Performance Matrix</h4>
             <div className="grid grid-cols-2 gap-6">
