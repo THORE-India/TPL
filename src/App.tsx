@@ -49,7 +49,7 @@ const Navbar = () => {
                 THORE PREMIER LEAGUE
               </span>
               <span className="text-[10px] font-black uppercase tracking-[0.3em] text-orange-400/70 italic">
-                Season 4 · Phoenix
+                Season 4 · Phoenix Rises
               </span>
             </div>
           </div>
@@ -162,22 +162,6 @@ const Hero = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-xl border border-orange-500/20 px-6 py-2.5 rounded-full text-phoenix-gold text-sm font-black italic tracking-widest mb-8"
-            style={{ boxShadow: '0 0 30px rgba(255,140,0,0.15)' }}
-          >
-            <Flame className="w-5 h-5 fill-orange-400 text-orange-400 animate-pulse" />
-            <span>SEASON 4: THE PHOENIX RISES</span>
-          </motion.div>
-          
           <h1 className="text-7xl md:text-9xl font-black text-white leading-[0.85] mb-8 italic">
             THORE <br />
             <span className="phoenix-text-gradient">PREMIER</span> <br />
@@ -242,7 +226,7 @@ const Hero = () => {
               
             <div className="absolute top-8 left-8 text-white px-4 py-2 rounded-lg font-black italic skew-x-[-15deg]"
                  style={{ background: 'linear-gradient(135deg, #ff4500, #ff8c00)' }}>
-              PHOENIX DIVISION
+              TPL S4
             </div>
           </div>
           
@@ -681,7 +665,7 @@ const SeasonLogos = () => {
           title: 'Season 1',
           subtitle: 'The Beginning',
           status: 'completed',
-          year: '2023',
+          year: 'Jul-Sept 2025',
           champion: 'Team Nayan Thorat',
           logo: 'https://i.postimg.cc/wjmcw90H/TPL-LOGO-NO-BACKGROUND.png',
         },
@@ -690,8 +674,8 @@ const SeasonLogos = () => {
           title: 'Season 2',
           subtitle: 'The Rivalry',
           status: 'completed',
-          year: '2024',
-          champion: 'Team Himanshu Kumar',
+          year: 'Oct-Dec 2025',
+          champion: 'Team Nayan Thorat',
           logo: 'https://i.postimg.cc/sDt5Qtsz/TPL-Season2-No-Background.png',
         },
         {
@@ -699,7 +683,7 @@ const SeasonLogos = () => {
           title: 'Season 3',
           subtitle: 'The Reckoning',
           status: 'completed',
-          year: '2025',
+          year: 'Jan-Mar 2026',
           champion: 'TBD',
           logo: 'https://i.postimg.cc/6QKRzn8D/TPL-Season-3-Logo-No-Background.png',
         },
@@ -708,7 +692,7 @@ const SeasonLogos = () => {
           title: 'Season 4',
           subtitle: 'The Phoenix',
           status: 'active',
-          year: '2026',
+          year: 'Apr-Jun 2026',
           champion: 'IN PROGRESS',
           logo: 'https://i.postimg.cc/85PZKq7Y/TPL-Season-4-No-Background.png',
         },
