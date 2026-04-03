@@ -192,13 +192,20 @@ const Hero = () => {
           className="relative"
         >
           <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(0,210,255,0.2)] border-8 border-white/5 animate-float">
-            <img 
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" 
-              alt="TPL Team" 
-              className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-tpl-primary via-transparent to-transparent opacity-80"></div>
+        
+          {/* VIDEO */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/tpl-video.mp4" type="video/mp4" />
+          </video>
+        
+          {/* OVERLAY */}
+          <div className="absolute inset-0 bg-gradient-to-t from-tpl-primary via-transparent to-transparent opacity-80"></div>
             
             <div className="absolute top-8 left-8 bg-tpl-secondary text-white px-4 py-2 rounded-lg font-black italic skew-x-[-15deg]">
               ELITE DIVISION
