@@ -22,7 +22,7 @@ export const TPL_DATA = {
       wins: 1,
       rankings: ['2nd', '1st', '3rd'],
       notablePlayers: ['Rahul S.', 'Priya M.'],
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+      image: 'https://i.postimg.cc/bN5Pv4Cm/Himanshu-Kumar-Team-Season-2.png',
     },
     {
       id: 'nayan',
@@ -32,7 +32,7 @@ export const TPL_DATA = {
       wins: 2,
       rankings: ['1st', '2nd', '1st'],
       notablePlayers: ['Amit K.', 'Sonal V.'],
-      image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80',
+      image: 'https://i.postimg.cc/vHV9qwnR/Nayan-Thorat-Team-Season-2.png',
     },
     {
       id: 'omkar',
@@ -42,7 +42,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['4th', '3rd', '2nd'],
       notablePlayers: ['Kiran P.', 'Deepak R.'],
-      image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80',
+      image: 'https://i.postimg.cc/cJFByqBM/Omkar-Dhawale-Team-Season-2-2.png',
     },
     {
       id: 'pintu',
@@ -52,7 +52,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['5th', '4th'],
       notablePlayers: ['Vikram S.', 'Anjali T.'],
-      image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80',
+      image: 'https://i.postimg.cc/J0bTWDFk/Akshay-Marathe-Team-Season-2.png',
     },
     {
       id: 'ahsan',
@@ -62,7 +62,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['3rd', '5th', '4th'],
       notablePlayers: ['Zaid M.', 'Farah K.'],
-      image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80',
+      image: 'https://i.postimg.cc/RV75LqXf/Ahsan-Khan-Team-Season-2.png',
     },
     {
       id: 'krishna',
@@ -72,7 +72,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['6th', '6th', '5th'],
       notablePlayers: ['Gopal V.', 'Radha S.'],
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
+      image: 'https://i.postimg.cc/jd2G4dcT/Team-Akshay-marathe.png',
     },
     {
       id: 'akhilesh',
@@ -82,7 +82,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['7th', '7th'],
       notablePlayers: ['Manoj K.', 'Suresh P.'],
-      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80',
+      image: 'https://i.postimg.cc/VNNmLMXB/Akhilesh-Pandey-Team-Season-2-1.png',
     },
     {
       id: 'onkar-p',
@@ -92,7 +92,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['8th', '8th', '6th'],
       notablePlayers: ['Tanmay P.', 'Sneha L.'],
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
+      image: 'https://i.postimg.cc/Vvys5pkm/Onkar-Patil-Team-Season-2.png',
     },
     {
       id: 'amit',
@@ -102,7 +102,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['9th', '9th'],
       notablePlayers: ['Rohan W.', 'Neha G.'],
-      image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+      image: 'https://i.postimg.cc/DyTsMYdY/Amit-Wadkar-Team-Season-2.png',
     },
     {
       id: 'hardik',
@@ -112,7 +112,7 @@ export const TPL_DATA = {
       wins: 0,
       rankings: ['10th', '10th', '7th'],
       notablePlayers: ['Jatin M.', 'Esha D.'],
-      image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80',
+      image: 'https://i.postimg.cc/wMjkxpqN/Generated-Image-February-24-2026-2-41PM.png',
     },
   ],
   wallOfFame: [
@@ -133,7 +133,7 @@ export const TPL_DATA = {
     },
   ],
   gallery: [
-    'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80',
+    'https://i.postimg.cc/TPHjhXhk/Generated-Image-October-05-2025-12-58-AM.png',
     'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
     'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
     'https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&w=800&q=80',
