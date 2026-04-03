@@ -247,8 +247,6 @@ const Hero = () => {
           {/* Phoenix ember glow underneath */}
           <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 blur-3xl rounded-full opacity-40"
                style={{ background: 'linear-gradient(90deg, #ff4500, #ff8c00, #ffd700)' }} />
-        </motion.div>
-      </div>
     </section>
   );
 };
